@@ -1,5 +1,5 @@
 
-"""Top-level input fields for tokenizing a credit card."""
+"""Top-level input fields for tokenizing a credit card KARA."""
 input TokenizeCreditCardInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
