@@ -133,7 +133,7 @@ input CustomActionsPaymentMethodFieldInput {
   """The value of this field. e.g. "123456789"."""
   value: String!
 
-  """The value displayed in the Control Panel or API. e.g. "*****6789"."""
+  """The value displayed in the Control Panel or API. e.g. "<com-qordoba-variable-escape>***</com-qordoba-variable-escape><com-qordoba-variable-escape>**</com-qordoba-variable-escape>6789"."""
   displayValue: String!
 }
 
@@ -271,46 +271,34 @@ input AddressInput {
   """State or province. 255 character maximum."""
   region: String
 
-  """
-  Postal code in any country's format, otherwise known as CAP, CEP, Eircode, NPA, PIN, PLZ, or ZIP code. Nine alphanumeric characters maximum, may also contain spaces and hyphens.
+  """Postal code in any country's format, otherwise known as CAP, CEP, Eircode, NPA, PIN, PLZ, or ZIP code. Nine alphanumeric characters maximum, may also contain spaces and hyphens.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   postalCode: String
 
-  """
-  Country code for the address in ISO 3166-1 alpha-3 format.
+  """Country code for the address in ISO 3166-1 alpha-3 format.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   countryCode: CountryCodeAlpha3
 
-  """
-  Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
+  """Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
 
-  Country code for the address in ISO 3166-1 alpha-3 format.
-  """
+  Country code for the address in ISO 3166-1 alpha-3 format."""
   countryCodeAlpha3: String
 
-  """
-  Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
+  """Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
 
-  Country code for the address in ISO 3166-1 alpha-2 format.
-  """
+  Country code for the address in ISO 3166-1 alpha-2 format."""
   countryCodeAlpha2: String
 
-  """
-  Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
+  """Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
 
-  Country code for the address in ISO 3166-1 numeric format.
-  """
+  Country code for the address in ISO 3166-1 numeric format."""
   countryCodeNumeric: String
 
-  """
-  Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
+  """Deprecated: This field is included for supporting legacy clients. Please use `countryCode` instead.
 
-  Country name for the address.
-  """
+  Country name for the address."""
   countryName: String
 }
 
@@ -391,11 +379,9 @@ input CaptureTransactionInput {
   """ID of a transaction to be captured."""
   transactionId: ID!
 
-  """
-  Deprecated: This field is included for supporting legacy clients. Please use `transaction.amount` instead.
+  """Deprecated: This field is included for supporting legacy clients. Please use `transaction.amount` instead.
 
-  The amount to capture on the transaction. Must be greater than 0. You can't capture more than the authorized amount unless your industry and processor support settlement adjustment (capturing a certain percentage over the authorized amount); contact [Braintree support](mailto:support@braintreepayments.com) for details. If you capture an amount that is less than what was authorized, the transaction object will return the amount captured.
-  """
+  The amount to capture on the transaction. Must be greater than 0. You can't capture more than the authorized amount unless your industry and processor support settlement adjustment (capturing a certain percentage over the authorized amount); contact <com-qordoba-variable-escape>[</com-qordoba-variable-escape>Braintree support<com-qordoba-variable-escape>](mailto:support@braintreepayments.com)</com-qordoba-variable-escape> for details. If you capture an amount that is less than what was authorized, the transaction object will return the amount captured."""
   amount: Amount
 
   """Input fields for the capture, with details that will define the resulting transaction."""
@@ -404,7 +390,7 @@ input CaptureTransactionInput {
 
 """Input fields for a capture, with details that will define the resulting transaction."""
 input CaptureTransactionOptionsInput {
-  """The amount to capture on the transaction. Must be greater than 0. You can't capture more than the authorized amount unless your industry and processor support settlement adjustment (capturing a certain percentage over the authorized amount); contact [Braintree support](mailto:support@braintreepayments.com) for details. If you capture an amount that is less than what was authorized, the transaction object will return the amount captured."""
+  """The amount to capture on the transaction. Must be greater than 0. You can't capture more than the authorized amount unless your industry and processor support settlement adjustment (capturing a certain percentage over the authorized amount); contact <com-qordoba-variable-escape>[</com-qordoba-variable-escape>Braintree support<com-qordoba-variable-escape>](mailto:support@braintreepayments.com)</com-qordoba-variable-escape> for details. If you capture an amount that is less than what was authorized, the transaction object will return the amount captured."""
   amount: Amount
 
   """Fields used to define what will appear on a customer's bank statement for a specific purchase. If specified, this will update the existing descriptor on the transaction."""
@@ -428,7 +414,7 @@ input PartialCaptureTransactionInput {
 
 """Input fields for the capture, with details that will define the resulting capture transaction."""
 input PartialCaptureTransactionOptionsInput {
-  """The amount to capture on the transaction against the parent authorization transaction. Must be greater than 0. You can perform multiple partial capture transactions as long as the cumulative amount of those transactions is less than or equal to the amount authorized by the parent transaction. You can't capture more than the authorized amount unless your industry and processor support settlement adjustment (capturing a certain percentage over the authorized amount); contact [Braintree support](mailto:support@braintreepayments.com) for details."""
+  """The amount to capture on the transaction against the parent authorization transaction. Must be greater than 0. You can perform multiple partial capture transactions as long as the cumulative amount of those transactions is less than or equal to the amount authorized by the parent transaction. You can't capture more than the authorized amount unless your industry and processor support settlement adjustment (capturing a certain percentage over the authorized amount); contact <com-qordoba-variable-escape>[</com-qordoba-variable-escape>Braintree support<com-qordoba-variable-escape>](mailto:support@braintreepayments.com)</com-qordoba-variable-escape> for details."""
   amount: Amount!
 
   """Additional information about the transaction. On PayPal transactions, this field maps to the PayPal invoice number. PayPal invoice numbers must be unique in your PayPal business account. Maximum 255 characters or 127 for PayPal transactions. If specified, this will update the existing order ID on the transaction."""
@@ -503,17 +489,15 @@ input TransactionInput {
   """Additional information about the transaction. On PayPal transactions, this field maps to the PayPal invoice number. PayPal invoice numbers must be unique in your PayPal business account. Maximum 255 characters or 127 for PayPal transactions."""
   orderId: String
 
-  """
-  A purchase order identification value you associate with this transaction.
+  """A purchase order identification value you associate with this transaction.
 
-  *Required for Level 2 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 2 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   purchaseOrderNumber: String
 
   """Customer device information, which is sent directly to supported processors for fraud analysis."""
   riskData: RiskDataInput
 
-  """Collection of custom field/value pairs. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field) prior to passing it with a request."""
+  """Collection of custom field/value pairs. You must <com-qordoba-variable-escape>[</com-qordoba-variable-escape>set up each custom field in the Control Panel<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field)</com-qordoba-variable-escape> prior to passing it with a request."""
   customFields: [CustomFieldInput!]
 
   """Fields used to define what will appear on a customer's bank statement for a specific purchase."""
@@ -522,38 +506,30 @@ input TransactionInput {
   """The type of recurring payment the transaction represents."""
   recurring: RecurringType
 
-  """For partners and shopping carts only. If you are a shopping cart provider or other Braintree partner, pass a string identifier for your service. For PayPal transactions, this maps to paypal.bn_code."""
+  """For partners and shopping carts only. If you are a shopping cart provider or other Braintree partner, pass a string identifier for your service. For PayPal transactions, this maps to paypal.bn<com-qordoba-variable-escape>_</com-qordoba-variable-escape>code."""
   channel: String
 
   """If charging a single-use payment method, optional ID of a customer to associate the transaction with."""
   customerId: ID
 
-  """
-  Shipping information.
+  """Shipping information.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   shipping: TransactionShippingInput
 
-  """
-  Tax information about the transaction.
+  """Tax information about the transaction.
 
-  *Required for Level 2 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 2 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   tax: TransactionTaxInput
 
-  """
-  Discount amount that was included in the total transaction amount. Does not add to the total amount the payment method will be charged. This value can't be negative.
+  """Discount amount that was included in the total transaction amount. Does not add to the total amount the payment method will be charged. This value can't be negative.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   discountAmount: String
 
-  """
-  Line items for this transaction. Up to 249 line items may be specified.
+  """Line items for this transaction. Up to 249 line items may be specified.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   lineItems: [TransactionLineItemInput!]
 
   """Results of a merchant-performed 3D Secure authentication. You will only need to use these fields if you've performed your own integration with a 3D Secure MPI provider (e.g. Cardinal Centinel). Otherwise, Braintree's SDKs handle this for you in our standard 3D Secure integration."""
@@ -568,142 +544,106 @@ input UpdateTransactionCustomFieldsInput {
   """The ID of the transaction to update."""
   transactionId: ID!
 
-  """The list of custom fields to update. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field) prior to passing it with a request."""
+  """The list of custom fields to update. You must <com-qordoba-variable-escape>[</com-qordoba-variable-escape>set up each custom field in the Control Panel<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field)</com-qordoba-variable-escape> prior to passing it with a request."""
   customFields: [CustomFieldInput!]!
 }
 
 """Information related to shipping a physical product."""
 input TransactionShippingInput {
-  """
-  Shipping destination address information.
+  """Shipping destination address information.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   shippingAddress: AddressInput
 
-  """
-  Shipping cost on the entire transaction.
+  """Shipping cost on the entire transaction.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   shippingAmount: String
 
-  """
-  The postal code of the source shipping location, in any country's format.
+  """The postal code of the source shipping location, in any country's format.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   shipsFromPostalCode: String
 }
 
 """Information related to taxes on the transaction."""
 input TransactionTaxInput {
-  """
-  Amount of tax that was included in the total transaction amount. Does not add to the total amount the payment method will be charged.
+  """Amount of tax that was included in the total transaction amount. Does not add to the total amount the payment method will be charged.
 
-  *Required for Level 2 processing* unless `taxExempt` is `true`.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 2 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape> unless `taxExempt` is `true`."""
   taxAmount: Amount
 
-  """
-  Whether the transaction should be considered eligible for tax exemption.
+  """Whether the transaction should be considered eligible for tax exemption.
 
-  *Required for Level 2 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 2 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   taxExempt: Boolean
 }
 
 """Data for individual line items on a transaction."""
 input TransactionLineItemInput {
-  """
-  Item name. Maximum 35 characters, or 127 characters for PayPal transactions.
+  """Item name. Maximum 35 characters, or 127 characters for PayPal transactions.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   name: String!
 
-  """
-  Indicates whether the line item is a sale or refund.
+  """Indicates whether the line item is a sale or refund.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   kind: TransactionLineItemType!
 
-  """
-  Number of units of the item purchased. Can include up to 4 decimal places. This value can't be negative or zero.
+  """Number of units of the item purchased. Can include up to 4 decimal places. This value can't be negative or zero.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   quantity: String!
 
-  """
-  Per-unit price of the item. Maximum 4 decimal places, or 2 decimal places for PayPal transactions. This value can't be negative or zero.
+  """Per-unit price of the item. Maximum 4 decimal places, or 2 decimal places for PayPal transactions. This value can't be negative or zero.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   unitAmount: String!
 
-  """
-  Total price amount for the line item: quantity multiplied by unitAmount. Can include up to 2 decimal places.
+  """Total price amount for the line item: quantity multiplied by unitAmount. Can include up to 2 decimal places.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   totalAmount: String!
 
-  """
-  Per-unit tax price of the item. Can include up to 2 decimal places. This value can't be negative or zero.
+  """Per-unit tax price of the item. Can include up to 2 decimal places. This value can't be negative or zero.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   unitTaxAmount: String
 
-  """
-  Tax amount for the line item. Can include up to 2 decimal places. This value can't be negative.
+  """Tax amount for the line item. Can include up to 2 decimal places. This value can't be negative.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   taxAmount: String
 
-  """
-  Amount of discount for the line item. Can include up to 2 decimal places. This value can't be negative.
+  """Amount of discount for the line item. Can include up to 2 decimal places. This value can't be negative.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   discountAmount: String
 
-  """
-  The unit of measure or the unit of measure code. Maximum 12 characters.
+  """The unit of measure or the unit of measure code. Maximum 12 characters.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   unitOfMeasure: String
 
-  """
-  Product or UPC code for the item. Maximum 12 characters, or 127 characters for PayPal transactions.
+  """Product or UPC code for the item. Maximum 12 characters, or 127 characters for PayPal transactions.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   productCode: String
 
-  """
-  Code used to classify items purchased and track the total amount spent across various categories of products and services. Different corporate purchasing organizations may use different standards, but the [United Nations Standard Products and Services Code (UNSPSC)](https://www.unspsc.org/) is frequently used. Maximum 12 characters.
+  """Code used to classify items purchased and track the total amount spent across various categories of products and services. Different corporate purchasing organizations may use different standards, but the <com-qordoba-variable-escape>[</com-qordoba-variable-escape>United Nations Standard Products and Services Code (UNSPSC)<com-qordoba-variable-escape>](https://www.unspsc.org/)</com-qordoba-variable-escape> is frequently used. Maximum 12 characters.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   commodityCode: String
 
-  """
-  Item description. Maximum 127 characters.
+  """Item description. Maximum 127 characters.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   description: String
 
-  """
-  A URL to information about the product.
+  """A URL to information about the product.
 
-  *Required for Level 3 processing*.
-  """
+  <com-qordoba-variable-escape>*</com-qordoba-variable-escape>Required for Level 3 processing<com-qordoba-variable-escape>*</com-qordoba-variable-escape>."""
   url: String
 }
 
@@ -779,7 +719,7 @@ input RiskDataInput {
   deviceData: String
 }
 
-"""Custom field name/value pairs. Maximum 255 characters. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field) prior to passing it with a request."""
+"""Custom field name/value pairs. Maximum 255 characters. You must <com-qordoba-variable-escape>[</com-qordoba-variable-escape>set up each custom field in the Control Panel<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field)</com-qordoba-variable-escape> prior to passing it with a request."""
 input CustomFieldInput {
   """Name of the custom field as defined in the Control Panel."""
   name: CustomFieldName!
@@ -796,11 +736,9 @@ input VaultPaymentMethodInput {
   """ID of an existing single-use payment method to be vaulted."""
   paymentMethodId: ID!
 
-  """
-  Deprecated: This field is included for supporting legacy clients. Please use `verification.merchantAccountId` instead.
+  """Deprecated: This field is included for supporting legacy clients. Please use `verification.merchantAccountId` instead.
 
-  ID of the merchant account to use when verifying the payment method.
-  """
+  ID of the merchant account to use when verifying the payment method."""
   verificationMerchantAccountId: ID
 
   """Input fields that specify options for verifying the vaulted payment method, if it is of a type that supports verification."""
@@ -908,7 +846,7 @@ input ConfirmMicroTransferAmountsInput {
   """ID of the verification from vaulting the bank account."""
   verificationId: ID!
 
-  """The amounts, in cents, of two deposits made into the customer's bank account after initiating a MICRO_TRANSFERS verification. These values should be collected from your customer."""
+  """The amounts, in cents, of two deposits made into the customer's bank account after initiating a MICRO<com-qordoba-variable-escape>_</com-qordoba-variable-escape>TRANSFERS verification. These values should be collected from your customer."""
   amountsInCents: [Int!]!
 }
 
@@ -1169,7 +1107,7 @@ input CustomerInput {
   """Company or business name associated with the customer."""
   company: String
 
-  """Collection of custom field/value pairs. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field) prior to passing it with a request."""
+  """Collection of custom field/value pairs. You must <com-qordoba-variable-escape>[</com-qordoba-variable-escape>set up each custom field in the Control Panel<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field)</com-qordoba-variable-escape> prior to passing it with a request."""
   customFields: [CustomFieldInput!]
 
   """Email address for the customer."""
@@ -1242,7 +1180,7 @@ input ThreeDSecureLookupTransactionInformationInput {
   phoneNumber: String
 }
 
-""" The billing address of the cardholder sent with 3D Secure Lookup requests."""
+"""The billing address of the cardholder sent with 3D Secure Lookup requests."""
 input ThreeDSecureLookupBillingAddressInput {
   """The given (first) name associated with the billing address used for verification."""
   givenName: String
@@ -1275,7 +1213,7 @@ input ThreeDSecureLookupBillingAddressInput {
   postalCode: String
 }
 
-"""Information about the client side lookup process."""
+"""Information about the client-side lookup process."""
 input ThreeDSecureLookupClientInformationInput {
   """Version of the Braintree client-side SDK being used."""
   sdkVersion: String
