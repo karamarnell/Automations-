@@ -1158,7 +1158,7 @@ input PerformThreeDSecureLookupInput {
   """When set to true, requests a 3D Secure authentication challenge from the issuer. A challenge will result in the acsUrl field being populated on the response, requiring you to open the challenge on the client side."""
   requestAuthenticationChallenge: Boolean
 
-  """Information about the client-side lookup process."""
+  """Information about the client side lookup process."""
   clientInformation: ThreeDSecureLookupClientInformationInput
 }
 
